@@ -9,7 +9,7 @@ spec:
         - name: consumer
           env:
             - name: GCP_PROJECT
-              value: "dev-moshe"
+              value: "dev-moshe-gke-da6f"
             - name: PUBSUB_SUBSCRIPTION
               value: "moshe-payment-event"
             - name: PUBSUB_TOPIC
