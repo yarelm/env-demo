@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+spec:
+  selector:
+    matchLabels:
+      run: consumer
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: consumer
+    spec:
+      containers:
+      - name: consumer
+        image: gcr.io/dev-gke-301312/env-service:dummy
+        resources:
+          limits:
+            memory: "100Mi"
+            cpu: 1
+          requests:
+            cpu: "0.1"
+            memory: "10Mi"

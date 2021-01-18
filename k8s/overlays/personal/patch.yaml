@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+spec:
+  template:
+    spec:
+      containers:
+        - name: consumer
+          env:
+            - name: GCP_PROJECT
+              value: "dev-moshe"
+            - name: PUBSUB_SUBSCRIPTION
+              value: "moshe-payment-event"
+            - name: PUBSUB_TOPIC
+              value: "moshe-payment-event"
