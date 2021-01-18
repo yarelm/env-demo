@@ -7,7 +7,7 @@ bases:
 patchesStrategicMerge:
 - patch.yaml
 
-namePrefix: dev-moshe
+namePrefix: dev-moshe-
 namespace: dev-moshe-env
 
 
