@@ -14,4 +14,4 @@ namespace: dev-moshe-env
 images:
 - name: gcr.io/shared-vpc-host-yarel2-ac62/env-service
   newName: gcr.io/shared-vpc-host-yarel2-ac62/env-service
-  newTag: 079c0bbb3846c3c89c3c0c8f598986efc9f3453a
+  newTag: 2f0805e9bfeed51222c13a6dc054845dc7ab39df
