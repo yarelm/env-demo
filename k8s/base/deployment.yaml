@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: consumer
-        image: gcr.io/dev-gke-301312/env-service:dummy
+        image: gcr.io/shared-vpc-host-yarel2-ac62/env-service:dummy
         resources:
           limits:
             memory: "100Mi"
