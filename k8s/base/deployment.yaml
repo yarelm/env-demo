@@ -12,6 +12,7 @@ spec:
       labels:
         run: consumer
     spec:
+      serviceAccountName: ksa
       containers:
       - name: consumer
         image: gcr.io/shared-vpc-host-yarel2-ac62/env-service:dummy
