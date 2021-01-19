@@ -5,7 +5,7 @@ metadata:
 spec:
   template:
     spec:
-      serviceAccountName: dev-moshe-ksa
+      serviceAccountName: ksa
       containers:
         - name: consumer
           env:
