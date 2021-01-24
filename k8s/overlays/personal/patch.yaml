@@ -5,7 +5,7 @@ metadata:
 spec:
   template:
     spec:
-      serviceAccountName: ksa
+      serviceAccountName: iden-gke-on-vpc-cluster
       containers:
         - name: consumer
           env:
