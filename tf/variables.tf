@@ -28,18 +28,7 @@ variable "billing_account" {
 
 variable "host_project_name" {
   description = "Name for Shared VPC host project"
-  default     = "shared-vpc-host-yarel2"
-}
-
-# variable "service_project_name" {
-#   description = "Name for Shared VPC service project"
-#   default     = "shared-vpc-service"
-# }
-
-
-variable "network" {
-  description = "The VPC network created to host the cluster in"
-  default     = "gke-network"
+  default     = "shared-vpc-host-multi"
 }
 
 variable "region" {
@@ -47,36 +36,42 @@ variable "region" {
   default     = "us-west1"
 }
 
-
-
-
-variable "subnetwork_name" {
-  description = "Name for subnetwork"
-  default     = "shared-network-vpc-subnet"
-}
-
-variable "ip_range_pods_name" {
-  description = "The secondary ip range to use for pods"
-  default     = "ip-range-pods"
-}
-
-variable "ip_range_services_name" {
-  description = "The secondary ip range to use for services"
-  default     = "ip-range-scv"
-}
-
-variable "subnetwork" {
-  description = "The subnetwork created to host the cluster in"
-  default     = "gke-subnet"
-}
-
-variable "zones" {
+variable "gke_zones" {
   type        = list(string)
   description = "The zone to host the cluster in (required if is a zonal cluster)"
   default = ["us-west1-a"]
 }
 
-variable "cluster_name" {
-  description = "The name for the GKE cluster"
-  default     = "gke-on-vpc-cluster"
-}
+
+
+//
+//variable "subnetwork_name" {
+//  description = "Name for subnetwork"
+//  default     = "shared-network-vpc-subnet"
+//}
+//
+//variable "ip_range_pods_name" {
+//  description = "The secondary ip range to use for pods"
+//  default     = "ip-range-pods"
+//}
+//
+//variable "ip_range_services_name" {
+//  description = "The secondary ip range to use for services"
+//  default     = "ip-range-scv"
+//}
+//
+//variable "subnetwork" {
+//  description = "The subnetwork created to host the cluster in"
+//  default     = "gke-subnet"
+//}
+//
+//variable "zones" {
+//  type        = list(string)
+//  description = "The zone to host the cluster in (required if is a zonal cluster)"
+//  default = ["us-west1-a"]
+//}
+//
+//variable "cluster_name" {
+//  description = "The name for the GKE cluster"
+//  default     = "gke-on-vpc-cluster"
+//}

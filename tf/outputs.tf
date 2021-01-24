@@ -15,37 +15,11 @@
  */
 
 output "host_project_id" {
-  value       = module.host-project.project_id
+  value       = module.host.host_project_id
   description = "The ID of the created project"
 }
 
 output "host_project" {
-  value       = module.host-project
+  value       = module.host
   description = "The full host project info"
-}
-
-# output "service_project" {
-#   value       = module.service-project
-#   description = "The service project info"
-# }
-
-
-output "vpc" {
-  value       = module.gcp-network
-  description = "The network info"
-}
-
-output "network_name" {
-  value       = module.gcp-network.network_name
-  description = "The name of the VPC being created"
-}
-
-output "network_self_link" {
-  value       = module.gcp-network.network_self_link
-  description = "The URI of the VPC being created"
-}
-
-output "subnets" {
-  value       = module.gcp-network.subnets_self_links
-  description = "The shared VPC subets"
 }
