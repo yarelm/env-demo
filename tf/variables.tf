@@ -41,37 +41,3 @@ variable "gke_zones" {
   description = "The zone to host the cluster in (required if is a zonal cluster)"
   default = ["us-west1-a"]
 }
-
-
-
-//
-//variable "subnetwork_name" {
-//  description = "Name for subnetwork"
-//  default     = "shared-network-vpc-subnet"
-//}
-//
-//variable "ip_range_pods_name" {
-//  description = "The secondary ip range to use for pods"
-//  default     = "ip-range-pods"
-//}
-//
-//variable "ip_range_services_name" {
-//  description = "The secondary ip range to use for services"
-//  default     = "ip-range-scv"
-//}
-//
-//variable "subnetwork" {
-//  description = "The subnetwork created to host the cluster in"
-//  default     = "gke-subnet"
-//}
-//
-//variable "zones" {
-//  type        = list(string)
-//  description = "The zone to host the cluster in (required if is a zonal cluster)"
-//  default = ["us-west1-a"]
-//}
-//
-//variable "cluster_name" {
-//  description = "The name for the GKE cluster"
-//  default     = "gke-on-vpc-cluster"
-//}
