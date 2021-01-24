@@ -3,13 +3,12 @@ kind: Kustomization
 
 bases:
 - namespace.yaml
-- ../../base
+- ../../../base
 
 patchesStrategicMerge:
 - patch.yaml
 
-# namePrefix: dev-moshe-
-namespace: dev-moshe-env
+namespace: dev-david-env
 
 
 images:
