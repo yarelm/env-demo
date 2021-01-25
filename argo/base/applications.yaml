@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: moshe-env
+spec:
+  destination:
+    name: ''
+    namespace: moshe-env
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: k8s/overlays/personal/moshe
+    repoURL: 'https://github.com/yarelm/env-demo'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

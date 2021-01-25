@@ -5,7 +5,7 @@ bases:
 - base/namespace.yaml
 - github.com/argoproj/argo-cd/manifests/cluster-install?ref=v1.8.2
 - base/argocd.yaml
-- base/demo-service.yaml
+- base/applications.yaml
 
 # additional resources like ingress rules, cluster and repository secrets.
 # resources:
