@@ -5,13 +5,13 @@ metadata:
 spec:
   template:
     spec:
-      serviceAccountName: iden-gke-on-vpc-cluster
+      serviceAccountName: ksa-developer-moshe
       containers:
         - name: consumer
           env:
             - name: GCP_PROJECT
-              value: "dev-david-gke-da6f"
+              value: "moshe-env-2924"
             - name: PUBSUB_SUBSCRIPTION
-              value: "david-payment-event"
+              value: "payment-event"
             - name: PUBSUB_TOPIC
-              value: "david-payment-event"
+              value: "payment-event"
