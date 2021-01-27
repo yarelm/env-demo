@@ -7,7 +7,7 @@ bases:
 patchesStrategicMerge:
 - patch.yaml
 
-namespace: prod
+namespace: simon-env
 
 
 images:

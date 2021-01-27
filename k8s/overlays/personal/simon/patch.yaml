@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+spec:
+  template:
+    spec:
+      serviceAccountName: ksa-developer-simon
+      containers:
+        - name: consumer
+          env:
+            - name: GCP_PROJECT
+              value: "simon-env-71bf"
+            - name: PUBSUB_SUBSCRIPTION
+              value: "payment-event"
+            - name: PUBSUB_TOPIC
+              value: "payment-event"
