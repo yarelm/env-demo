@@ -15,3 +15,7 @@ spec:
               value: "payment-event"
             - name: PUBSUB_TOPIC
               value: "payment-event"
+            - name: PG_HOST
+              value: "34.83.245.37"
+            - name: PG_USER
+              value: "simon"
