@@ -38,7 +38,7 @@ module "gcp-network" {
   ]
 
   secondary_ranges = {
-    "${var.subnetwork}" = [
+    var.subnetwork = [
       {
         range_name    = var.ip_range_pods_name
         ip_cidr_range = "192.168.0.0/18"
@@ -98,7 +98,6 @@ module "gke" {
       "https://www.googleapis.com/auth/cloud-platform",
     ]
   }
-
 }
 
 module "cloud_router" {
@@ -156,34 +155,4 @@ module "postgresql-db" {
   ]
 
   module_depends_on = [module.private-service-access.peering_completed]
-
-
-//  additional_databases = [
-//  for num in var.subnet_numbers:
-//  cidrsubnet(data.aws_vpc.example.cidr_block, 8, num)
-//
-//
-//    {
-//      name      = "${var.pg_ha_name}-additional"
-//      charset   = "UTF8"
-//      collation = "en_US.UTF8"
-//    },
-//  ]
-//
-//  user_name     = "tftest"
-//  user_password = "foobar"
-//
-//  additional_users = [
-//    {
-//      name     = "tftest2"
-//      password = "abcdefg"
-//      host     = "localhost"
-//    },
-//    {
-//      name     = "tftest3"
-//      password = "abcdefg"
-//      host     = "localhost"
-//    },
-//  ]
 }
-
