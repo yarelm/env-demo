@@ -10,6 +10,7 @@ module "host-project" {
   activate_apis = [
     "compute.googleapis.com",
     "container.googleapis.com",
+    "servicenetworking.googleapis.com"
   ]
 }
 
@@ -113,6 +114,12 @@ module "cloud_router" {
   }]
 }
 
+module "private-service-access" {
+  source      = "GoogleCloudPlatform/sql-db/google//modules/private_service_access"
+  project_id  = module.host-project.project_id
+  vpc_network = module.gcp-network.network_name
+}
+
 module "postgresql-db" {
   source               = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
   name                 = "db"
@@ -124,6 +131,13 @@ module "postgresql-db" {
   tier                 = "db-f1-micro"
 
   deletion_protection = false
+
+  ip_configuration = {
+    private_network = module.gcp-network.network_self_link
+    ipv4_enabled = false
+    require_ssl = false
+    authorized_networks = []
+  }
 
   additional_databases = [
     for tenant in var.tenants: {
@@ -140,6 +154,8 @@ module "postgresql-db" {
       host     = "localhost"
     }
   ]
+
+  module_depends_on = [module.private-service-access.peering_completed]
 
 
 //  additional_databases = [
