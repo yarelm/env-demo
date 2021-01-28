@@ -11,11 +11,5 @@ spec:
           env:
             - name: GCP_PROJECT
               value: "moshe-env-2924"
-            - name: PUBSUB_SUBSCRIPTION
-              value: "payment-event"
-            - name: PUBSUB_TOPIC
-              value: "payment-event"
-            - name: PG_HOST
-              value: "10.162.0.3"
             - name: PG_USER
               value: "moshe"

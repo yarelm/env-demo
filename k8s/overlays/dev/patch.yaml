@@ -11,11 +11,5 @@ spec:
           env:
             - name: GCP_PROJECT
               value: "dev"
-            - name: PUBSUB_SUBSCRIPTION
-              value: "payment-event"
-            - name: PUBSUB_TOPIC
-              value: "payment-event"
-            - name: PG_HOST
-              value: "10.0.0.0"
             - name: PG_USER
               value: "dev"
