@@ -9,6 +9,9 @@ patchesStrategicMerge:
 
 namespace: moshe-env
 
+configMapGenerator:
+  - name: the-map
+    env: config.properties
 
 images:
 - name: gcr.io/shared-vpc-host-multi-c103/env-service

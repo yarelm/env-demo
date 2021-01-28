@@ -6,10 +6,10 @@ spec:
   template:
     spec:
       serviceAccountName: ksa-developer-moshe
-      containers:
-        - name: consumer
-          env:
-            - name: GCP_PROJECT
-              value: "moshe-env-2924"
-            - name: PG_USER
-              value: "moshe"
+#      containers:
+#        - name: consumer
+#          env:
+#            - name: GCP_PROJECT
+#              value: "moshe-env-2924"
+#            - name: PG_USER
+#              value: "moshe"
