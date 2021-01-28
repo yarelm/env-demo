@@ -13,4 +13,4 @@ namespace: moshe-env
 images:
 - name: gcr.io/shared-vpc-host-multi-c103/env-service
   newName: gcr.io/shared-vpc-host-multi-c103/env-service
-  newTag: 14f43518d6b144024be85da7b58d0b84d93fccdb
+  newTag: 4107a1fbc68d5f4260670d472293771bc94f71f0
