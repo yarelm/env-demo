@@ -7,13 +7,4 @@ bases:
 - base/argocd.yaml
 - base/applications.yaml
 
-# additional resources like ingress rules, cluster and repository secrets.
-# resources:
-# - clusters-secrets.yaml
-# - repos-secrets.yaml
-
-# changes to config maps
-# patchesStrategicMerge:
-# - overlays/argo-cd-cm.yaml
-
 namespace: argocd

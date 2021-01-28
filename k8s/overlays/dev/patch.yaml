@@ -5,12 +5,12 @@ metadata:
 spec:
   template:
     spec:
-      serviceAccountName: ksa-prod
+      serviceAccountName: ksa-dev
       containers:
         - name: consumer
           env:
             - name: GCP_PROJECT
-              value: "prod"
+              value: "dev"
             - name: PUBSUB_SUBSCRIPTION
               value: "payment-event"
             - name: PUBSUB_TOPIC
@@ -18,4 +18,4 @@ spec:
             - name: PG_HOST
               value: "10.0.0.0"
             - name: PG_USER
-              value: "prod"
+              value: "dev"
