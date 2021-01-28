@@ -112,3 +112,62 @@ module "cloud_router" {
     name = "gke-nat"
   }]
 }
+
+module "postgresql-db" {
+  source               = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
+  name                 = "db"
+  random_instance_name = true
+  database_version     = "POSTGRES_9_6"
+  project_id           = module.host-project.project_id
+  zone                 = var.zones[0]
+  region               = var.region
+  tier                 = "db-f1-micro"
+
+  deletion_protection = false
+
+  additional_databases = [
+    for tenant in var.tenants: {
+      name      = tenant
+      charset   = "UTF8"
+      collation = "en_US.UTF8"
+    }
+  ]
+
+  additional_users = [
+    for tenant in var.tenants: {
+      name     = tenant
+      password = tenant
+      host     = "localhost"
+    }
+  ]
+
+
+//  additional_databases = [
+//  for num in var.subnet_numbers:
+//  cidrsubnet(data.aws_vpc.example.cidr_block, 8, num)
+//
+//
+//    {
+//      name      = "${var.pg_ha_name}-additional"
+//      charset   = "UTF8"
+//      collation = "en_US.UTF8"
+//    },
+//  ]
+//
+//  user_name     = "tftest"
+//  user_password = "foobar"
+//
+//  additional_users = [
+//    {
+//      name     = "tftest2"
+//      password = "abcdefg"
+//      host     = "localhost"
+//    },
+//    {
+//      name     = "tftest3"
+//      password = "abcdefg"
+//      host     = "localhost"
+//    },
+//  ]
+}
+

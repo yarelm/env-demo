@@ -1,3 +1,7 @@
+locals {
+  tenants = ["moshe", "simon"]
+}
+
 module "host" {
   source = "./modules/host"
 
@@ -5,15 +9,14 @@ module "host" {
   folder_id = var.folder_id
   organization_id = var.organization_id
   host_project_name = var.host_project_name
+  tenants = local.tenants
 
   region = var.region
   zones = var.gke_zones
 }
 
 
-locals {
-  tenants = ["moshe", "simon"]
-}
+
 
 module "dev_envs" {
   source = "./modules/developer"

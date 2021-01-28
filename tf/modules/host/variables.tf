@@ -48,3 +48,8 @@ variable "zones" {
   type        = list(string)
   description = "The zone to host the cluster in (required if is a zonal cluster)"
 }
+
+variable "tenants" {
+  type = list(string)
+  description = "list of tenant names"
+}
