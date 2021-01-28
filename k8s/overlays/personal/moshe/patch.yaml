@@ -16,6 +16,6 @@ spec:
             - name: PUBSUB_TOPIC
               value: "payment-event"
             - name: PG_HOST
-              value: "34.83.245.37"
+              value: "10.162.0.3"
             - name: PG_USER
               value: "moshe"
