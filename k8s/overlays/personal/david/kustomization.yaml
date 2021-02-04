@@ -3,7 +3,6 @@ kind: Kustomization
 
 bases:
   - ../../../base
-  - ../../dev
 
 namespace: david-env
 
