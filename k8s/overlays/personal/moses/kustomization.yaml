@@ -3,6 +3,7 @@ kind: Kustomization
 
 bases:
 - ../../../base
+- ../../dev
 
 namespace: moses-env
 
