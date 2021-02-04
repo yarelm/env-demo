@@ -11,7 +11,11 @@ namespace: moshe-env
 
 configMapGenerator:
   - name: consumer-config
-    env: consumer.conf
+    behavior: merge
+    literals:
+      - GCP_PROJECT=moshe-env-2924
+      - PG_USER=moshe
+
 
 images:
 - name: gcr.io/shared-vpc-host-multi-c103/env-service

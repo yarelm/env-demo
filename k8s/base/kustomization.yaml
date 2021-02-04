@@ -3,3 +3,11 @@ kind: Kustomization
 
 resources:
 - deployment.yaml
+
+configMapGenerator:
+  - name: consumer-config
+    behavior: merge
+    literals:
+      - PUBSUB_SUBSCRIPTION=payment-event
+      - PUBSUB_TOPIC=payment-event
+      - PG_HOST=10.162.0.3
