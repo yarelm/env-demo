@@ -26,12 +26,20 @@ resource "kubernetes_namespace" "developer-1" {
   }
 }
 
+resource "kubernetes_service_account" "ksa" {
+  metadata {
+    name = "ksa"
+    namespace = local.k8s_developer_namespace
+  }
+}
+
 module "workload_identity" {
   source              = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
   project_id          = var.host_project_id
-  name                = "ksa-developer-${var.developer_name}"
+  name                = "${var.developer_name}-sa"
   namespace           = local.k8s_developer_namespace
-  use_existing_k8s_sa = false
+  k8s_sa_name = "ksa"
+  use_existing_k8s_sa = true
   depends_on = [
     module.developer-project
   ]
