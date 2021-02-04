@@ -4,9 +4,6 @@ kind: Kustomization
 bases:
 - ../../../base
 
-patchesStrategicMerge:
-- patch.yaml
-
 namespace: moshe-env
 
 configMapGenerator:

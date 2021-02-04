@@ -12,19 +12,13 @@ spec:
       labels:
         run: consumer
     spec:
+      serviceAccountName: ksa
       containers:
       - name: consumer
         image: gcr.io/shared-vpc-host-multi-c103/env-service:dummy
         envFrom:
           - configMapRef:
               name: consumer-config
-#        env:
-#          - name: PUBSUB_SUBSCRIPTION
-#            value: "payment-event"
-#          - name: PUBSUB_TOPIC
-#            value: "payment-event"
-#          - name: PG_HOST
-#            value: "10.162.0.3"
         resources:
           limits:
             memory: "100Mi"

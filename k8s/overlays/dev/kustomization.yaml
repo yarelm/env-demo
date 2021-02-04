@@ -4,11 +4,14 @@ kind: Kustomization
 bases:
 - ../../../base
 
-patchesStrategicMerge:
-- patch.yaml
-
 namespace: dev
 
+configMapGenerator:
+  - name: consumer-config
+    behavior: merge
+    literals:
+      - GCP_PROJECT=dev-env
+      - PG_USER=dev
 
 images:
 - name: gcr.io/shared-vpc-host-multi-c103/env-service
