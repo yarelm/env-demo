@@ -15,6 +15,9 @@ spec:
       containers:
       - name: consumer
         image: gcr.io/shared-vpc-host-multi-c103/env-service:dummy
+        envFrom:
+          - configMapRef:
+              name: consumer-config
         env:
           - name: PUBSUB_SUBSCRIPTION
             value: "payment-event"
@@ -22,10 +25,6 @@ spec:
             value: "payment-event"
           - name: PG_HOST
             value: "10.162.0.3"
-          - name: GCP_PROJECT
-            value: $(GCP_PROJECT)
-          - name: PG_USER
-            value: $(PG_USER)
         resources:
           limits:
             memory: "100Mi"
