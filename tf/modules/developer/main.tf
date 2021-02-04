@@ -20,7 +20,7 @@ locals {
     k8s_developer_namespace = "${var.developer_name}-env"
 }
 
-resource "kubernetes_namespace" "developer-1" {
+resource "kubernetes_namespace" "developer" {
   metadata {
     name = local.k8s_developer_namespace
   }
@@ -30,6 +30,10 @@ resource "kubernetes_service_account" "ksa" {
   metadata {
     name = "ksa"
     namespace = local.k8s_developer_namespace
+
+    annotations = {
+      "iam.gke.io/gcp-service-account" = module.workload_identity.gcp_service_account_email
+    }
   }
 }
 
@@ -39,9 +43,11 @@ module "workload_identity" {
   name                = "${var.developer_name}-sa"
   namespace           = local.k8s_developer_namespace
   k8s_sa_name = "ksa"
+  annotate_k8s_sa = false
   use_existing_k8s_sa = true
   depends_on = [
-    module.developer-project
+    module.developer-project,
+    kubernetes_namespace.developer
   ]
 }
 
