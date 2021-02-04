@@ -12,8 +12,3 @@ configMapGenerator:
     literals:
       - GCP_PROJECT=dev-env
       - PG_USER=dev
-
-images:
-- name: gcr.io/shared-vpc-host-multi-c103/env-service
-  newName: gcr.io/shared-vpc-host-multi-c103/env-service
-  newTag: 4107a1fbc68d5f4260670d472293771bc94f71f0
