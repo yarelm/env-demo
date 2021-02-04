@@ -12,9 +12,3 @@ configMapGenerator:
     literals:
       - GCP_PROJECT=david-env-0648
       - PG_USER=david
-
-
-images:
-  - name: gcr.io/shared-vpc-host-multi-c103/env-service
-    newName: gcr.io/shared-vpc-host-multi-c103/env-service
-    newTag: 4107a1fbc68d5f4260670d472293771bc94f71f0

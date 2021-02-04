@@ -12,9 +12,3 @@ configMapGenerator:
     literals:
       - GCP_PROJECT=moses-env-baca
       - PG_USER=moses
-
-
-images:
-- name: gcr.io/shared-vpc-host-multi-c103/env-service
-  newName: gcr.io/shared-vpc-host-multi-c103/env-service
-  newTag: 4107a1fbc68d5f4260670d472293771bc94f71f0
