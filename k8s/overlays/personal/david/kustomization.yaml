@@ -4,14 +4,14 @@ kind: Kustomization
 bases:
   - ../../../base
 
-namespace: simon-env
+namespace: david-env
 
 configMapGenerator:
   - name: consumer-config
     behavior: merge
     literals:
-      - GCP_PROJECT=simon-env-71bf
-      - PG_USER=simon
+      - GCP_PROJECT=david-env-0648
+      - PG_USER=david
 
 
 images:

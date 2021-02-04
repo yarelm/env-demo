@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: moshe-env
+  name: moses-env
 spec:
   destination:
     name: ''
-    namespace: moshe-env
+    namespace: moses-env
     server: 'https://kubernetes.default.svc'
   source:
-    path: k8s/overlays/personal/moshe
+    path: k8s/overlays/personal/moses
     repoURL: 'https://github.com/yarelm/env-demo'
     targetRevision: HEAD
   project: default
@@ -20,14 +20,14 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: simon-env
+  name: david-env
 spec:
   destination:
     name: ''
-    namespace: simon-env
+    namespace: david-env
     server: 'https://kubernetes.default.svc'
   source:
-    path: k8s/overlays/personal/simon
+    path: k8s/overlays/personal/david
     repoURL: 'https://github.com/yarelm/env-demo'
     targetRevision: HEAD
   project: default
