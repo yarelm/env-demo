@@ -1,7 +1,7 @@
-module "developer-project" {
+module "tenant-project" {
   source                         = "terraform-google-modules/project-factory/google//modules/svpc_service_project"
   random_project_id              = true
-  name                           = "${var.developer_name}-env"
+  name                           = "${var.tenant_name}-env"
   org_id                         = var.organization_id
   folder_id                      = var.folder_id
   billing_account                = var.billing_account
@@ -17,19 +17,19 @@ module "developer-project" {
 }
 
 locals {
-    k8s_developer_namespace = "${var.developer_name}-env"
+    k8s_tenant_namespace = "${var.tenant_name}-env"
 }
 
-resource "kubernetes_namespace" "developer" {
+resource "kubernetes_namespace" "tenant" {
   metadata {
-    name = local.k8s_developer_namespace
+    name = local.k8s_tenant_namespace
   }
 }
 
 resource "kubernetes_service_account" "ksa" {
   metadata {
     name = "ksa"
-    namespace = local.k8s_developer_namespace
+    namespace = local.k8s_tenant_namespace
 
     annotations = {
       "iam.gke.io/gcp-service-account" = module.workload_identity.gcp_service_account_email
@@ -40,19 +40,19 @@ resource "kubernetes_service_account" "ksa" {
 module "workload_identity" {
   source              = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
   project_id          = var.host_project_id
-  name                = "${var.developer_name}-sa"
-  namespace           = local.k8s_developer_namespace
+  name                = "${var.tenant_name}-sa"
+  namespace           = local.k8s_tenant_namespace
   k8s_sa_name = "ksa"
   annotate_k8s_sa = false
   use_existing_k8s_sa = true
   depends_on = [
-    module.developer-project,
-    kubernetes_namespace.developer
+    module.tenant-project,
+    kubernetes_namespace.tenant
   ]
 }
 
 resource "google_project_iam_binding" "project" {
-  project = module.developer-project.project_id
+  project = module.tenant-project.project_id
   role    = "roles/pubsub.subscriber"
 
   members = [
@@ -62,5 +62,5 @@ resource "google_project_iam_binding" "project" {
 
 module "pubsub" {
     source = "../pubsub"
-    project_id = module.developer-project.project_id
+    project_id = module.tenant-project.project_id
 }

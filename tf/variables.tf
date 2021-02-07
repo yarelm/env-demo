@@ -20,10 +20,10 @@ variable "region" {
   default     = "us-west1"
 }
 
-variable "gke_zones" {
-  type        = list(string)
-  description = "The zone to host the cluster in (required if is a zonal cluster)"
-  default = ["us-west1-a"]
+variable "db_zone" {
+  type        = string
+  description = "The zone to host the postgres DB"
+  default = "us-west1-a"
 }
 
 variable "tenants" {

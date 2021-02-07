@@ -14,15 +14,6 @@ module "host-project" {
   ]
 }
 
-data "google_client_config" "default" {}
-
-provider "kubernetes" {
-  load_config_file       = false
-  host                   = "https://${module.gke.endpoint}"
-  token                  = data.google_client_config.default.access_token
-  cluster_ca_certificate = base64decode(module.gke.ca_certificate)
-}
-
 module "gcp-network" {
   source       = "terraform-google-modules/network/google"
   project_id   = module.host-project.project_id
@@ -62,9 +53,8 @@ module "gke" {
   source     = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster/"
   project_id = module.host-project.project_id
   name       = var.cluster_name
-  regional   = false
+  regional   = true
   region     = var.region
-  zones      = slice(var.zones, 0, 1)
 
   network                 = module.gcp-network.network_name
   subnetwork              = module.gcp-network.subnets_names[0]
@@ -82,8 +72,8 @@ module "gke" {
       display_name = "VPC"
     },
     {
-      cidr_block   = "77.137.156.108/32"
-      display_name = "Terraform execution"
+      cidr_block   = "0.0.0.0/0"
+      display_name = "Allow All (REMOVE BEFORE FLIGHT!)"
     },
   ]
 
@@ -111,6 +101,8 @@ module "cloud_router" {
   nats = [{
     name = "gke-nat"
   }]
+
+  depends_on = [module.gcp-network]
 }
 
 module "private-service-access" {
@@ -121,14 +113,15 @@ module "private-service-access" {
 
 module "postgresql-db" {
   source               = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
-  name                 = "db"
+  name                 = "master"
   random_instance_name = true
   database_version     = "POSTGRES_9_6"
   project_id           = module.host-project.project_id
-  zone                 = var.zones[0]
+  zone                 = var.db_zone
   region               = var.region
   tier                 = "db-f1-micro"
 
+  create_timeout = "20m"
   deletion_protection = false
 
   ip_configuration = {

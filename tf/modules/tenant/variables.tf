@@ -11,8 +11,8 @@ variable "billing_account" {
   description = "The ID of the billing account to associate this project with"
 }
 
-variable "developer_name" {
-  description = "Name of developer for personal environment"
+variable "tenant_name" {
+  description = "Name of tenant for personal environment"
 }
 
 variable "region" {

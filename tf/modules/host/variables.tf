@@ -24,6 +24,10 @@ variable "region" {
   description = "Name for region"
 }
 
+variable "db_zone" {
+  description = "Zone name for postgres DB"
+}
+
 variable "subnetwork" {
   description = "The subnetwork created to host the cluster in"
   default     = "gke-subnet"
@@ -42,11 +46,6 @@ variable "ip_range_services_name" {
 variable "cluster_name" {
   description = "The GKE cluster name"
   default     = "host-cluster"
-}
-
-variable "zones" {
-  type        = list(string)
-  description = "The zone to host the cluster in (required if is a zonal cluster)"
 }
 
 variable "tenants" {
