@@ -15,7 +15,7 @@ spec:
       serviceAccountName: ksa
       containers:
       - name: consumer
-        image: gcr.io/env-service-304211/env-service:e84aceeadbc009b1a19f7bfef63c18f13819f605
+        image: gcr.io/env-service-304211/env-service:b257ad9ab8fd1c344a3574d1f51c782aab0ac0d9
         envFrom:
           - configMapRef:
               name: gcp-config
