@@ -7,7 +7,4 @@ bases:
 - base/argocd.yaml
 - base/applications.yaml
 
-patchesStrategicMerge:
-  - base/argo-cd-cm.yaml
-
 namespace: argocd
