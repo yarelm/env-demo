@@ -5,9 +5,9 @@ bases:
 - ../../../base
 
 namespace: dev
-
-configMapGenerator:
-  - name: consumer-config
-    behavior: merge
-    literals:
-      - PG_USER=dev
+#
+#configMapGenerator:
+#  - name: consumer-config
+#    behavior: merge
+#    literals:
+#      - PG_USER=dev

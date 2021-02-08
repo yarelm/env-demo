@@ -27,3 +27,7 @@ variable "subnetwork" {
 variable "host_project_id" {
   description = "The host project GCP project ID"
 }
+
+variable "postgres_ip" {
+  description = "The private IP address of postgres DB"
+}

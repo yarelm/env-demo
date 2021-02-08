@@ -6,8 +6,8 @@ bases:
 
 namespace: david-env
 
-configMapGenerator:
-  - name: consumer-config
-    behavior: merge
-    literals:
-      - PG_USER=david
+#configMapGenerator:
+#  - name: consumer-config
+#    behavior: merge
+#    literals:
+#      - PG_USER=david

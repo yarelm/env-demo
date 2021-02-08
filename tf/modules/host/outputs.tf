@@ -12,3 +12,7 @@ output "kubernetes_ca_cert" {
   sensitive = true
   value     = module.gke.ca_certificate
 }
+
+output "postgres_ip" {
+  value = module.postgresql-db.private_ip_address
+}

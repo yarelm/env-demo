@@ -35,6 +35,7 @@ resource "kubernetes_config_map" "gcp" {
   data = {
     GCP_PROJECT             = module.tenant-project.project_id
     PG_USER = var.tenant_name
+    PG_HOST = var.postgres_ip
   }
 }
 

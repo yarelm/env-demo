@@ -6,8 +6,8 @@ bases:
 
 namespace: moses-env
 
-configMapGenerator:
-  - name: consumer-config
-    behavior: merge
-    literals:
-      - PG_USER=moses
+#configMapGenerator:
+#  - name: consumer-config
+#    behavior: merge
+#    literals:
+#      - PG_USER=moses

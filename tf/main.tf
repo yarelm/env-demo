@@ -28,6 +28,7 @@ module "dev_envs" {
   folder_id = var.folder_id
   host_project_id = module.host.host_project_id
   organization_id = var.organization_id
+  postgres_ip = module.host.postgres_ip
   region = var.region
 
   depends_on = [module.host]
