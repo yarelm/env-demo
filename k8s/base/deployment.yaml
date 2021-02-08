@@ -18,7 +18,7 @@ spec:
         image: gcr.io/env-service-304211/env-service:e84aceeadbc009b1a19f7bfef63c18f13819f605
         envFrom:
           - configMapRef:
-              name: consumer-config
+              name: gcp-config
         resources:
           limits:
             memory: "100Mi"

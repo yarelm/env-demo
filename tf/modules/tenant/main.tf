@@ -26,10 +26,22 @@ resource "kubernetes_namespace" "tenant" {
   }
 }
 
+resource "kubernetes_config_map" "gcp" {
+  metadata {
+    name = "gcp-config"
+    namespace = kubernetes_namespace.tenant.metadata[0].name
+  }
+
+  data = {
+    gcp_project             = module.tenant-project.project_id
+    pg_user = var.tenant_name
+  }
+}
+
 resource "kubernetes_service_account" "ksa" {
   metadata {
     name = "ksa"
-    namespace = local.k8s_tenant_namespace
+    namespace = kubernetes_namespace.tenant.metadata[0].name
 
     annotations = {
       "iam.gke.io/gcp-service-account" = module.workload_identity.gcp_service_account_email
@@ -41,7 +53,7 @@ module "workload_identity" {
   source              = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
   project_id          = var.host_project_id
   name                = "${var.tenant_name}-sa"
-  namespace           = local.k8s_tenant_namespace
+  namespace           = kubernetes_namespace.tenant.metadata[0].name
   k8s_sa_name = "ksa"
   annotate_k8s_sa = false
   use_existing_k8s_sa = true

@@ -10,3 +10,4 @@ configMapGenerator:
       - PUBSUB_SUBSCRIPTION=payment-event
       - PUBSUB_TOPIC=payment-event
       - PG_HOST=10.162.0.3
+
