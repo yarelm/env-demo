@@ -1,5 +1,6 @@
 # ArgoCD installation and application creation
 
+* Make sure your kubectl context is set to the GKE cluster created in the previous part (the Terraform part)
 * Run `kustomize build . | kubectl apply -f -` (This will install ArgoCD on the K8s cluster and our example personal argo applications)
   * Note: you need to install kustomize for this to work. if you are using `kubectl apply -k argo` instead, it might not work as expected due to a kustomize version issue.
 * Run `kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2` to get the initial ArgoCD login password
