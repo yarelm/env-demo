@@ -19,6 +19,8 @@ spec:
         envFrom:
           - configMapRef:
               name: gcp-config
+          - configMapRef:
+              name: consumer-config
         resources:
           limits:
             memory: "100Mi"

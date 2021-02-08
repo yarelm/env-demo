@@ -33,8 +33,8 @@ resource "kubernetes_config_map" "gcp" {
   }
 
   data = {
-    gcp_project             = module.tenant-project.project_id
-    pg_user = var.tenant_name
+    GCP_PROJECT             = module.tenant-project.project_id
+    PG_USER = var.tenant_name
   }
 }
 

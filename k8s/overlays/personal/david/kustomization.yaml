@@ -10,5 +10,4 @@ configMapGenerator:
   - name: consumer-config
     behavior: merge
     literals:
-      - GCP_PROJECT=david-env-0648
       - PG_USER=david

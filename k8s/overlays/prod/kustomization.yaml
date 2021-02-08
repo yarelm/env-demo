@@ -10,7 +10,6 @@ configMapGenerator:
   - name: consumer-config
     behavior: merge
     literals:
-      - GCP_PROJECT=prod-env
       - PG_USER=prod
 
 images:
