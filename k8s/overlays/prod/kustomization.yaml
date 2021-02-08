@@ -14,6 +14,6 @@ configMapGenerator:
       - PG_USER=prod
 
 images:
-  - name: gcr.io/shared-vpc-host-multi-c103/env-service
-    newName: gcr.io/shared-vpc-host-multi-c103/env-service
-    newTag: 4107a1fbc68d5f4260670d472293771bc94f71f0
+  - name: gcr.io/env-service-304211/env-service
+    newName: gcr.io/env-service-304211/env-service
+    newTag: e84aceeadbc009b1a19f7bfef63c18f13819f605

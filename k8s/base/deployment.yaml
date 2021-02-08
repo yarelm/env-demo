@@ -15,7 +15,7 @@ spec:
       serviceAccountName: ksa
       containers:
       - name: consumer
-        image: gcr.io/shared-vpc-host-multi-c103/env-service:4107a1fbc68d5f4260670d472293771bc94f71f0
+        image: gcr.io/env-service-304211/env-service:e84aceeadbc009b1a19f7bfef63c18f13819f605
         envFrom:
           - configMapRef:
               name: consumer-config
