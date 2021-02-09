@@ -2,15 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 bases:
-  - ../../../base
+  - ../../base
 
 namespace: prod
-
-#configMapGenerator:
-#  - name: consumer-config
-#    behavior: merge
-#    literals:
-#      - PG_USER=prod
 
 images:
   - name: gcr.io/env-service-304211/env-service
