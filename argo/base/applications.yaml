@@ -8,7 +8,7 @@ spec:
     namespace: moses-env
     server: 'https://kubernetes.default.svc'
   source:
-    path: k8s/overlays/personal/moses
+    path: k8s/overlays/personal
     repoURL: 'https://github.com/yarelm/env-demo'
     targetRevision: HEAD
   project: default
@@ -27,7 +27,7 @@ spec:
     namespace: david-env
     server: 'https://kubernetes.default.svc'
   source:
-    path: k8s/overlays/personal/david
+    path: k8s/overlays/personal
     repoURL: 'https://github.com/yarelm/env-demo'
     targetRevision: HEAD
   project: default
