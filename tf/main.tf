@@ -30,6 +30,4 @@ module "dev_envs" {
   organization_id = var.organization_id
   postgres_ip = module.host.postgres_ip
   region = var.region
-
-  depends_on = [module.host]
 }

@@ -1,2 +1,2 @@
-tenants = ["david", "moses", "zacharia"]
+tenants = ["david", "moses"]
 host_project_name = "shared-vpc-host-multi"

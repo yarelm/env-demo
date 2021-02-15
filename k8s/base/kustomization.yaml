@@ -4,9 +4,3 @@ kind: Kustomization
 resources:
 - deployment.yaml
 
-configMapGenerator:
-  - name: consumer-config
-    literals:
-      - PUBSUB_SUBSCRIPTION=payment-event
-      - PUBSUB_TOPIC=payment-event
-
