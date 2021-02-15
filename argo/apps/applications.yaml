@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: moses-env
+  namespace: argocd
 spec:
   destination:
     name: ''
@@ -21,6 +22,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: david-env
+  namespace: argocd
 spec:
   destination:
     name: ''
