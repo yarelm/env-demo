@@ -10,3 +10,7 @@ output "tenants_project_id" {
   })
   description = "The ID of the created tenants project"
 }
+
+output "postgres_ip" {
+  value = module.host.postgres_ip
+}
