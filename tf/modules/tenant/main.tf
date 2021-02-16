@@ -7,7 +7,7 @@ module "tenant-project" {
   billing_account                = var.billing_account
   shared_vpc = var.host_project_id
   shared_vpc_subnets = [
-    "projects/${var.host_project_id}/regions/${var.region}/subnetworks/${var.subnetwork}"
+    var.subnetwork_uri
   ]
 
   activate_apis = [

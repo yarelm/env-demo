@@ -29,5 +29,6 @@ module "dev_envs" {
   host_project_id = module.host.host_project_id
   organization_id = var.organization_id
   postgres_ip = module.host.postgres_ip
+  subnetwork_uri = module.host.subnetwork_uri
   region = var.region
 }

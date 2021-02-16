@@ -16,3 +16,7 @@ output "kubernetes_ca_cert" {
 output "postgres_ip" {
   value = module.postgresql-db.private_ip_address
 }
+
+output "subnetwork_uri" {
+  value = module.gcp-network.subnets_self_links[0]
+}

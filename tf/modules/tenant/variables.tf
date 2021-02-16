@@ -19,15 +19,14 @@ variable "region" {
   description = "Name for region"
 }
 
-variable "subnetwork" {
-  description = "The subnetwork created to host the cluster in"
-  default     = "gke-subnet"
-}
-
 variable "host_project_id" {
   description = "The host project GCP project ID"
 }
 
 variable "postgres_ip" {
   description = "The private IP address of postgres DB"
+}
+
+variable "subnetwork_uri" {
+  description = "The URI of the host subnetwork"
 }
