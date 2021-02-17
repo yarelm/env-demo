@@ -15,7 +15,7 @@ spec:
       serviceAccountName: ksa
       containers:
       - name: consumer
-        image: gcr.io/env-service-304211/env-service:b257ad9ab8fd1c344a3574d1f51c782aab0ac0d9
+        image: gcr.io/env-service-304211/env-service:832e9dd5f47bcbddc2999ba2f9791b0bc0a61dd0
         envFrom:
           - configMapRef:
               name: infra-config
