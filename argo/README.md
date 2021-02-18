@@ -1,5 +1,9 @@
 # ArgoCD installation and application creation
+* `/install` contains manifests which will install ArgoCD in the `argocd` namespace
+* `/apps` contains manifest which will install ArgoCD's configuration as ArgoCD application ([bootstrap as shown here](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#manage-argo-cd-using-argo-cd)), and also install per-environment applications.
 
+
+## Steps
 * Make sure your kubectl context is set to the GKE cluster created in the previous part (the Terraform part) - This can be done with running:
   `gcloud container clusters get-credentials host-cluster --region us-west1 --project HOST_PROJECT_ID` where HOST_PROJECT_ID appears after the `terraform apply` step.
 * Run `kustomize build install/ | kubectl apply -f -` (This will install ArgoCD on the K8s cluster )
