@@ -10,7 +10,8 @@ module "host-project" {
   activate_apis = [
     "compute.googleapis.com",
     "container.googleapis.com",
-    "servicenetworking.googleapis.com"
+    "servicenetworking.googleapis.com",
+    "logging.googleapis.com"
   ]
 }
 
