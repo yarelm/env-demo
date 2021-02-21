@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: moses-env
+  name: martha-env
   namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: moses-env
+    namespace: martha-env
     server: 'https://kubernetes.default.svc'
   source:
     path: k8s/overlays/personal
