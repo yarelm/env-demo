@@ -14,8 +14,6 @@ following roles:
 - `roles/billing.user` on the organization
 - `roles/compute.xpnAdmin` on the organization
 - `roles/compute.networkAdmin` on the organization
-- `roles/browser` on the Shared VPC host project
-- `roles/resourcemanager.projectIamAdmin` on the Shared VPC host project
 
 ### Structure
 
