@@ -2,6 +2,23 @@
 
 Tested with Terraform v0.13.6
 
+### Permissions
+
+In order to execute this module you must have a Service Account with the
+following roles:
+
+- `roles/resourcemanager.folderViewer` on the folder that you want to create the
+  projects in
+- `roles/resourcemanager.organizationViewer` on the organization
+- `roles/resourcemanager.projectCreator` on the organization
+- `roles/billing.user` on the organization
+- `roles/compute.xpnAdmin` on the organization
+- `roles/compute.networkAdmin` on the organization
+- `roles/browser` on the Shared VPC host project
+- `roles/resourcemanager.projectIamAdmin` on the Shared VPC host project
+
+### Structure
+
 This terraform module is built as follows:
 * `module/host` is the TF module for provisioning the single host project with the following infra components:
   * GKE private cluster
